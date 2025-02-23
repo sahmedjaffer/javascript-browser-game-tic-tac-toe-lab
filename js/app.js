@@ -4,7 +4,7 @@
 
 /*---------------------------- Variables (state) ----------------------------*/
 
-let board = [],turn='X',winner='',tie=false;
+let board = [],turn='O',winner='',tie=false;
 
 /*------------------------ Cached Element References ------------------------*/
 const sqr1 = document.querySelector("#square0");
@@ -21,25 +21,45 @@ const squareEls=document.querySelectorAll(".sqr");
 playerTurn(turn);
 /*-------------------------------- Functions --------------------------------*/
 function playerTurn(){
-    messageEl.textContent=`${turn} turn`
+    messageEl.textContent=`X turn`
     squareEls.forEach(sqrs => {
         sqrs.addEventListener('click', (event) => {
             messageEl.textContent=`${turn} turn`
-           turn === 'X' ? turn ='O':turn='X';
-
-/*               if (turn !== 'X' || turn === ""){
+                if (turn !== 'X' || turn === ""){
                     turn = 'X';
                     console.log(`u chose me ${turn}`);
                 }else {
                     turn='O';
                     console.log(`u chose me ${turn}`);
                 }   
-                */ 
-                sqrs.textContent=turn
-               
+                sqrs.textContent=turn;
+                board.push(turn);
+                console.log(board);
+                playedWin();
         })
+        
     })
    
+}
+
+function playedWin(){
+if (sqr1.textContent === 'X' && sqr2.textContent === sqr1.textContent && sqr3.textContent === sqr1.textContent){
+    winner=true;
+    console.log('I am wining')
+}
+    // console.log(sqr1.textContent);
+    // console.log(sqr2.textContent);
+    // console.log(sqr3.textContent);
+    // console.log(sqr4.textContent);
+    // console.log(sqr5.textContent);
+    // console.log(sqr6.textContent);
+    // console.log(sqr7.textContent);
+    // console.log(sqr8.textContent);
+    // console.log(sqr9.textContent);
+
+// if (){
+// }
+
 }
 /*----------------------------- Event Listeners -----------------------------*/
 
