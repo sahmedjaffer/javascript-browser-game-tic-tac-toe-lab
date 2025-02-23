@@ -18,29 +18,28 @@ const sqr8 = document.querySelector("#square7");
 const sqr9 = document.querySelector("#square8");
 const messageEl=document.querySelector("#message");
 const squareEls=document.querySelectorAll(".sqr");
-messageEl.textContent=`X turn`
 playerTurn(turn);
 /*-------------------------------- Functions --------------------------------*/
 function playerTurn(){
+    messageEl.textContent=`${turn} turn`
     squareEls.forEach(sqrs => {
-
         sqrs.addEventListener('click', (event) => {
-            sqrs.textContent=turn
+            messageEl.textContent=`${turn} turn`
+           turn === 'X' ? turn ='O':turn='X';
 
-           // if (sqrs.textContent === '' || sqrs.textContent===null){
-                if (turn === 'X'){
-                    turn = 'O';
+/*               if (turn !== 'X' || turn === ""){
+                    turn = 'X';
+                    console.log(`u chose me ${turn}`);
                 }else {
-                    turn='X';
-                }
-                console.log(turn);
+                    turn='O';
+                    console.log(`u chose me ${turn}`);
+                }   
+                */ 
                 sqrs.textContent=turn
-                messageEl.textContent=`${turn} turn`
-
-         //   }
-
+               
         })
     })
+   
 }
 /*----------------------------- Event Listeners -----------------------------*/
 
