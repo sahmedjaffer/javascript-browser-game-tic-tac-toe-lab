@@ -4,49 +4,93 @@
 
 /*---------------------------- Variables (state) ----------------------------*/
 
-let board = [],turn='O',winner='',tie=false;
+let board = ['','','','','','','',''],turn='O',winner='',tie=false;
 
 /*------------------------ Cached Element References ------------------------*/
-const sqr1 = document.querySelector("#square0");
-const sqr2 = document.querySelector("#square1");
-const sqr3 = document.querySelector("#square2");
-const sqr4 = document.querySelector("#square3");
-const sqr5 = document.querySelector("#square4");
-const sqr6 = document.querySelector("#square5");
-const sqr7 = document.querySelector("#square6");
-const sqr8 = document.querySelector("#square7");
-const sqr9 = document.querySelector("#square8");
 const messageEl=document.querySelector("#message");
 const squareEls=document.querySelectorAll(".sqr");
 playerTurn(turn);
 /*-------------------------------- Functions --------------------------------*/
 function playerTurn(){
     messageEl.textContent=`X turn`
+
     squareEls.forEach(sqrs => {
+        
         sqrs.addEventListener('click', (event) => {
+        
             messageEl.textContent=`${turn} turn`
-                if (turn !== 'X' || turn === ""){
+            if (sqrs.textContent ===''){
+                if (turn !== 'X' ){
                     turn = 'X';
                     console.log(`u chose me ${turn}`);
+                    board.splice(parseInt(sqrs.id),1,turn);
+                    console.log(sqrs.id);
+
                 }else {
                     turn='O';
                     console.log(`u chose me ${turn}`);
+                    board.splice(parseInt(sqrs.id),1,turn);
+                    console.log(sqrs.id);
                 }   
                 sqrs.textContent=turn;
-                board.push(turn);
                 console.log(board);
                 playedWin();
-        })
-        
+            }else {return}
     })
+        
+})
    
 }
 
 function playedWin(){
-if (sqr1.textContent === 'X' && sqr2.textContent === sqr1.textContent && sqr3.textContent === sqr1.textContent){
+// if (sqr1.textContent === 'X' && sqr2.textContent === sqr1.textContent && sqr3.textContent === sqr1.textContent){
+//     winner=true;
+//     console.log('I am wining')
+
+switch(board){
+case  (board[0] === board[1] && board[1] === board[2]):
     winner=true;
     console.log('I am wining')
+    break;
+case  (board[0] === board[1] && board[1] === board[2]):
+    winner=true;
+    console.log('I am wining')
+    break;
 }
+
+
+if (board[0] === board[1] && board[1] === board[2]){
+    winner=true;
+    console.log('I am wining')
+}else if (board[0] === board[1] && board[1] === board[2]){
+    winner=true;
+    console.log('I am wining')
+} else if (board[0] === board[1] && board[1] === board[2]){
+    winner=true;
+    console.log('I am wining')
+} else if (board[1] === board[4] && board[4] === board[7]){
+    winner=true;
+    console.log('I am wining')
+}else if (board[2] === board[5] && board[5] === board[8]){
+    winner=true;
+    console.log('I am wining')
+}else if (board[2] === board[4] && board[4] === board[6]){
+    winner=true;
+    console.log('I am wining')
+}else if (board[3] === board[4] && board[4] === board[5]){
+    winner=true;
+    console.log('I am wining')
+}else if (board[6] === board[7] && board[7] === board[8]){
+    winner=true;
+    console.log('I am wining')
+} else {
+    tie = true
+    console.log('I am tieing')
+
+}
+
+
+
     // console.log(sqr1.textContent);
     // console.log(sqr2.textContent);
     // console.log(sqr3.textContent);
