@@ -47,16 +47,16 @@ function playedWin(){
 //     winner=true;
 //     console.log('I am wining')
 
-switch(board){
-case  (board[0] === board[1] && board[1] === board[2]):
-    winner=true;
-    console.log('I am wining')
-    break;
-case  (board[0] === board[1] && board[1] === board[2]):
-    winner=true;
-    console.log('I am wining')
-    break;
-}
+// switch(board){
+// case  (board[0] === board[1] && board[1] === board[2]):
+//     winner=true;
+//     console.log('I am wining')
+//     break;
+// case  (board[0] === board[1] && board[1] === board[2]):
+//     winner=true;
+//     console.log('I am wining')
+//     break;
+// }
 
 
 if (board[0] === board[1] && board[1] === board[2]){
