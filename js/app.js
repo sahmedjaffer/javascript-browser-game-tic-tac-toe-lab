@@ -1,96 +1,79 @@
-/*-------------------------------- Constants --------------------------------*/
+/-------------------------------- Constants --------------------------------/
 
 
 
-/*---------------------------- Variables (state) ----------------------------*/
+/---------------------------- Variables (state) ----------------------------/
 
-let board = ['','','','','','','',''],turn='O',winner='',tie=false;
+let board = [],turn='O',winner='',tie=false;
 
-/*------------------------ Cached Element References ------------------------*/
+/------------------------ Cached Element References ------------------------/
+const sqr1 = document.getElementById("#0");
+const sqr2 = document.getElementById("#1");
+const sqr3 = document.getElementById("#2");
+const sqr4 = document.getElementById("#3");
+const sqr5 = document.getElementById("#4");
+const sqr6 = document.getElementById("#5");
+const sqr7 = document.getElementById("#6");
+const sqr8 = document.getElementById("#7");
+const sqr9 = document.getElementById("#8");
 const messageEl=document.querySelector("#message");
 const squareEls=document.querySelectorAll(".sqr");
+
 playerTurn(turn);
-/*-------------------------------- Functions --------------------------------*/
+/-------------------------------- Functions --------------------------------/
 function playerTurn(){
-    messageEl.textContent=`X turn`
-
+    messageEl.textContent=X turn;
+    let clicksTime=0;
     squareEls.forEach(sqrs => {
-        
         sqrs.addEventListener('click', (event) => {
-        
-            messageEl.textContent=`${turn} turn`
-            if (sqrs.textContent ===''){
-                if (turn !== 'X' ){
+            messageEl.textContent=${turn} turn
+                if (turn !== 'X' || turn === ""){
                     turn = 'X';
-                    console.log(`u chose me ${turn}`);
-                    board.splice(parseInt(sqrs.id),1,turn);
-                    console.log(sqrs.id);
-
+                    console.log(u chose me ${turn});
                 }else {
                     turn='O';
-                    console.log(`u chose me ${turn}`);
-                    board.splice(parseInt(sqrs.id),1,turn);
-                    console.log(sqrs.id);
+                    console.log(u chose me ${turn});
                 }   
                 sqrs.textContent=turn;
+                let clickedSqr =sqrs.id;
+                
+                    // console.log(clicksTime=1+parseInt(sqrs.id));
+                    // document.getElementById(#${sqrs.id}).textContent = turn;
+                    // console.log(document.getElementById(#${sqrs.id}).textContent);
+                
+                playedWin(clickedSqr);
+                console.log(clickedSqr);
+                board.push(clickedSqr);
                 console.log(board);
+
+               // console.log(sqrs.textContent.includes[clickedSqr])
+
+    // console.log(sqr2.textContent);
+    // console.log(sqr3.textContent);
+    // console.log(sqr4.textContent);
+    // console.log(sqr5.textContent);
+    // console.log(sqr6.textContent);
+    // console.log(sqr7.textContent);
+    // console.log(sqr8.textContent);
+    // console.log(sqr9.textContent);
+
                 playedWin();
-            }else {return}
+        })
+  
     })
-        
-})
-   
+
+}
+
+function sqrClickedNum(){
+
+
 }
 
 function playedWin(){
-// if (sqr1.textContent === 'X' && sqr2.textContent === sqr1.textContent && sqr3.textContent === sqr1.textContent){
+// if (sqr1.innerHTML.innerText === 'X' && sqr2.innerText === sqr1.innerText && sqr3.innerText === sqr1.innerText){
 //     winner=true;
 //     console.log('I am wining')
-
-// switch(board){
-// case  (board[0] === board[1] && board[1] === board[2]):
-//     winner=true;
-//     console.log('I am wining')
-//     break;
-// case  (board[0] === board[1] && board[1] === board[2]):
-//     winner=true;
-//     console.log('I am wining')
-//     break;
 // }
-
-
-if (board[0] === board[1] && board[1] === board[2]){
-    winner=true;
-    console.log('I am wining')
-}else if (board[0] === board[1] && board[1] === board[2]){
-    winner=true;
-    console.log('I am wining')
-} else if (board[0] === board[1] && board[1] === board[2]){
-    winner=true;
-    console.log('I am wining')
-} else if (board[1] === board[4] && board[4] === board[7]){
-    winner=true;
-    console.log('I am wining')
-}else if (board[2] === board[5] && board[5] === board[8]){
-    winner=true;
-    console.log('I am wining')
-}else if (board[2] === board[4] && board[4] === board[6]){
-    winner=true;
-    console.log('I am wining')
-}else if (board[3] === board[4] && board[4] === board[5]){
-    winner=true;
-    console.log('I am wining')
-}else if (board[6] === board[7] && board[7] === board[8]){
-    winner=true;
-    console.log('I am wining')
-} else {
-    tie = true
-    console.log('I am tieing')
-
-}
-
-
-
     // console.log(sqr1.textContent);
     // console.log(sqr2.textContent);
     // console.log(sqr3.textContent);
@@ -105,7 +88,7 @@ if (board[0] === board[1] && board[1] === board[2]){
 // }
 
 }
-/*----------------------------- Event Listeners -----------------------------*/
+/----------------------------- Event Listeners -----------------------------/
 
 
 
@@ -117,9 +100,5 @@ if (board[0] === board[1] && board[1] === board[2]){
 
 //     if (sqr1.textContent === '' && sqr2.textContent === '' && sqr3.textContent === ''){
 
-//     }
-//     });
-
-
-
-
+//     }
+//     });
