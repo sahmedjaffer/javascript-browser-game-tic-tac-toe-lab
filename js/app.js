@@ -1,14 +1,12 @@
-<<<<<<< HEAD
-=======
-/-------------------------------- Constants --------------------------------/
+/*-------------------------------- Constants --------------------------------*/
 
 
 
-/---------------------------- Variables (state) ----------------------------/
+/*---------------------------- Variables (state) ----------------------------*/
 
 let board = [],turn='O',winner='',tie=false;
 
-/------------------------ Cached Element References ------------------------/
+/*------------------------ Cached Element References ------------------------*/
 const sqr1 = document.getElementById("#0");
 const sqr2 = document.getElementById("#1");
 const sqr3 = document.getElementById("#2");
@@ -22,26 +20,26 @@ const messageEl=document.querySelector("#message");
 const squareEls=document.querySelectorAll(".sqr");
 
 playerTurn(turn);
-/-------------------------------- Functions --------------------------------/
+/*-------------------------------- Functions --------------------------------*/
 function playerTurn(){
-    messageEl.textContent=X turn;
+    messageEl.textContent=`X turn`;
     let clicksTime=0;
     squareEls.forEach(sqrs => {
         sqrs.addEventListener('click', (event) => {
-            messageEl.textContent=${turn} turn
+            messageEl.textContent=`${turn} turn`
                 if (turn !== 'X' || turn === ""){
                     turn = 'X';
-                    console.log(u chose me ${turn});
+                    console.log(`u chose me ${turn}`);
                 }else {
                     turn='O';
-                    console.log(u chose me ${turn});
+                    console.log(`u chose me ${turn}`);
                 }   
                 sqrs.textContent=turn;
                 let clickedSqr =sqrs.id;
                 
                     // console.log(clicksTime=1+parseInt(sqrs.id));
-                    // document.getElementById(#${sqrs.id}).textContent = turn;
-                    // console.log(document.getElementById(#${sqrs.id}).textContent);
+                    // document.getElementById(`#${sqrs.id}`).textContent = turn;
+                    // console.log(document.getElementById(`#${sqrs.id}`).textContent);
                 
                 playedWin(clickedSqr);
                 console.log(clickedSqr);
@@ -90,7 +88,7 @@ function playedWin(){
 // }
 
 }
-/----------------------------- Event Listeners -----------------------------/
+/*----------------------------- Event Listeners -----------------------------*/
 
 
 
@@ -102,6 +100,9 @@ function playedWin(){
 
 //     if (sqr1.textContent === '' && sqr2.textContent === '' && sqr3.textContent === ''){
 
-//     }
-//     });
->>>>>>> e664b536b10b1df74ad1af43a6e5a5d6090a7a28
+//     }
+//     });
+
+
+
+
